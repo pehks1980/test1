@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+            {{ title|title }}
+    </title>
+</head>
+<body>
+
+    <div class="container">
+
+            <div class="h2 text-center head">
+                Изображения
+            </div>
+
+            {% if links %}
+
+                <ul>
+                    <p>Загруженные файлы:</p>
+                    {% for obj in links %}
+                    <li>
+                        <a href="{% url 'view_page' obj.id %}">{{ obj.document.name }}  </a>
+                        <small>(Uploaded at: {{ obj.uploaded_at }})</small>
+                    </li>
+                    {% endfor %}
+
+            {% else %}
+                    <li>
+                        Нет доступных изображений
+                    </li>
+            {% endif %}
+
+
+                </ul>
+
+            <a href="{% url 'upload_page' %}">
+                           Добавить изображение
+            </a>
+
+
+	</div>
+
+</body>
+</html>

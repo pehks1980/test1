@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+            {{ title|title }}
+    </title>
+</head>
+<body>
+
+    <div class="container">
+            <p><a href="{% url 'main' %}">в начало</a></p>
+            <div class="h2 text-center head">
+                редактировать изображение
+            </div>
+
+                <form class="form-horizontal" action="{% url 'view_page' pk %}" enctype="multipart/form-data" method="post">
+
+                    {{ view_form.as_p }}
+
+                    <input type="hidden" name="current_size_x" id="size_x" value="{{image_x}}"/>
+                    <input type="hidden" name="current_size_y" id="size_y" value="{{image_y}}"/>
+
+                    <input type="submit" value="Отправить">
+                </form>
+            <p>
+                <img class="markdown-inline-img" src="{{image}}">
+            </p>
+
+	</div>
+
+</body>
+</html>

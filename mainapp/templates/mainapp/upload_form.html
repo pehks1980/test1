@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+            {{ title|title }}
+    </title>
+</head>
+<body>
+
+    <div class="container">
+            <p><a href="{% url 'main' %}">в начало</a></p>
+            <div class="h2 text-center head">
+                Загрузка изображения
+            </div>
+
+                <form class="form-horizontal" action="{% url 'upload_page' %}" enctype="multipart/form-data" method="post">
+
+                    {{ upload_form.as_p }}
+
+                    <input type="submit" value="Загрузить">
+                </form>
+	</div>
+
+</body>
+</html>
